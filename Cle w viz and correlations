@@ -1,0 +1,23 @@
+---
+title: "Cleveland Zoning Exp. Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Libraries
+```{r warning=F, message=F, error=F, results='hide'}
+library(sp)
+library(sf)
+library(tmap)
+library(tidyverse)
+library(tidycensus)
+library(tigris)
+library(corrplot)
+
+setwd('C:\\temp')
+
+download.file('https://planning.clevelandohio.gov/gisdata/zoning_districts_2022_9_1.zip', 'zoning')
+data <- read.table(unz(zoning, 'zoning'))
